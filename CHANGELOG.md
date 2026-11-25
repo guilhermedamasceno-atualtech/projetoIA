@@ -2,6 +2,13 @@
 
 ## triagem-email-base-conhecimento
 
+### v1.1 · 2026-11-25
+- Regra de escrita: tudo que a skill gera fica sem acento e sem cedilha (so ASCII).
+- Texto seco: frases curtas, sem saudacao e sem cortesia; secao "Justificativa" com 1-2 linhas.
+- SKILL.md reescrito no mesmo padrao: 36% menor (15,7 KB -> 10,0 KB), mesmas regras.
+- Checklist ganhou a verificacao de caracteres nao-ASCII.
+- Titulo do Markdown passa a usar `|` como separador: `# [CODIGO | tipo | resultado] Titulo`.
+
 ### v1 · 2026-11-25
 - Primeira versão da skill.
 - Árvore de decisão: lixo → caso → resultado → informativo → assunto → confiança.
