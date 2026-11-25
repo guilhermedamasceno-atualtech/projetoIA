@@ -1,0 +1,11 @@
+# Saídas da triagem: contêm conteúdo de e-mails, nunca versionar
+saida/
+_relatorio_*.md
+
+# Chave da pseudonimização: acesso restrito, nunca versionar
+_mapa_pseudonimos*.csv
+*.sal
+.env
+
+.DS_Store
+~$*.xlsx
