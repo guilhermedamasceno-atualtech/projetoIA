@@ -1,5 +1,12 @@
 # Changelog
 
+## infraestrutura
+
+### 2026-11-25 · ambiente de equipe
+- Planilha de controle com abas Setores, Taxonomia, Lotes, Revisoes, Decisoes e Log.
+- Apps Script de auditoria: registra quem aprovou e quando; bloqueia aprovacao pelo proprio executor e com revisoes pendentes.
+- Apps Script extrator: ID da conversa por Message-ID, pseudonimos com sal centralizado, limpeza e mascaramento antes da skill.
+
 ## triagem-email-base-conhecimento
 
 ### v1.1 · 2026-11-25

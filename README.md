@@ -35,6 +35,9 @@ funcionou, o que falhou e como cada assunto foi tratado.
 projetoIA/
 ├── README.md                     ← você está aqui
 ├── CHANGELOG.md                  ← histórico de versões das skills
+├── apps-script/
+│   ├── controle/                 ← auditoria da planilha de controle (quem aprovou, quando)
+│   └── extrator/                 ← extração das caixas com Message-ID e pseudônimos
 ├── skills/
 │   └── triagem-email-base-conhecimento/
 │       ├── SKILL.md              ← instruções que o Claude segue
@@ -65,6 +68,17 @@ regras e o mesmo formato de saída.
   `.claude/skills/` dentro de um projeto.
 
 ---
+
+## Ambiente de trabalho em equipe (Google Workspace)
+
+| peça | onde | para quê |
+|---|---|---|
+| Pasta **IA Interna** | Drive | `00-controle`, `01-entrada` (JSON extraídos), `02-saida` (Markdowns), `03-aprovados` (o que a equipe de processamento consome), `04-relatorios`, `05-scripts` |
+| Pasta **IA Interna - Restrito** | Drive, sem herança de permissões | mapa de pseudônimos e projeto do extrator |
+| Planilha **Controle - Triagem de e-mails** | `00-controle` | setores, taxonomias, lotes, revisões, decisões e log de auditoria |
+| [Apps Script](apps-script/) | planilha e pasta restrita | auditoria automática e extração com IDs estáveis |
+
+Toda aprovação fica registrada com e-mail e horário. Veja [apps-script/README.md](apps-script/README.md).
 
 ## Código dos setores
 
