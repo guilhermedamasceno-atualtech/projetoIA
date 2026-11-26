@@ -3,7 +3,8 @@
 Repositório de códigos e ferramentas do **projeto de IA interna da Atualtech**.
 
 O objetivo do projeto é transformar o conhecimento que hoje está espalhado
-pelas caixas de e-mail dos setores numa **base de conhecimento vetorizada**.
+pelas caixas de e-mail e pelos documentos normativos (políticas, procedimentos)
+dos setores numa **base de conhecimento vetorizada**.
 Com ela, a IA interna pode responder com base em casos reais da empresa: o que
 funcionou, o que falhou e como cada assunto foi tratado.
 
@@ -25,6 +26,7 @@ funcionou, o que falhou e como cada assunto foi tratado.
 | 1. Redirecionar as caixas para uma caixa unificada por setor | TI | planejado |
 | 2. Triagem e classificação dos e-mails | skill [`triagem-email-base-conhecimento`](skills/triagem-email-base-conhecimento/) | v1, em teste |
 | 3. Entrega dos Markdowns padronizados | skill (saída) | v1 |
+| Documentos normativos (PDF) → Markdown | skill [`conversao-pdf-base-conhecimento`](skills/conversao-pdf-base-conhecimento/) | v1, em teste |
 | 4. Chunks, embeddings e indexação | equipe de processamento | a definir |
 
 ---
@@ -36,9 +38,12 @@ projetoIA/
 ├── README.md                     ← você está aqui
 ├── CHANGELOG.md                  ← histórico de versões das skills
 ├── skills/
-│   └── triagem-email-base-conhecimento/
-│       ├── SKILL.md              ← instruções que o Claude segue
-│       └── README.md             ← documentação da skill para pessoas
+│   ├── triagem-email-base-conhecimento/
+│   │   ├── SKILL.md              ← instruções que o Claude segue
+│   │   └── README.md             ← documentação da skill para pessoas
+│   └── conversao-pdf-base-conhecimento/
+│       ├── SKILL.md
+│       └── README.md
 └── referencia/
     ├── codigos_setores.csv       ← os 52 códigos de setor (fonte única)
     └── estrutura_codificada.xlsx ← árvore organizacional com os códigos
@@ -54,7 +59,8 @@ regras e o mesmo formato de saída.
 
 | skill | o que faz | versão |
 |---|---|---|
-| [**triagem-email-base-conhecimento**](skills/triagem-email-base-conhecimento/) | Tria a caixa de e-mail de um setor, classifica cada conversa (caso de sucesso, falha, informativo ou lixo), aplica etiquetas `IA/…` no Gmail e gera um Markdown pseudonimizado por conversa para a base vetorizada | v1 |
+| [**triagem-email-base-conhecimento**](skills/triagem-email-base-conhecimento/) | Tria a caixa de e-mail de um setor, classifica cada conversa (caso de sucesso, falha, informativo ou lixo), aplica etiquetas `IA/…` no Gmail e gera um Markdown pseudonimizado por conversa para a base vetorizada | v1.1 |
+| [**conversao-pdf-base-conhecimento**](skills/conversao-pdf-base-conhecimento/) | Converte documento normativo em PDF (política, procedimento, instrução, manual) em um Markdown limpo, sem acento e pseudonimizado, mantendo toda regra, prazo e exceção, e registra inconsistências do original | v1 |
 
 ### Instalar uma skill
 
@@ -95,7 +101,7 @@ número, e registre a mudança no [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Privacidade e LGPD
 
-- **Nenhum conteúdo de e-mail entra neste repositório.** O `.gitignore` bloqueia
+- **Nenhum conteúdo de e-mail nem documento convertido entra neste repositório.** O `.gitignore` bloqueia
   a pasta `saida/`, os relatórios e o mapa de pseudônimos.
 - Na base vetorizada, as pessoas aparecem só como pseudônimos estáveis
   (`PES-xxxxxx`). CPF, telefone, endereço, dados bancários e senhas são sempre
